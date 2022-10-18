@@ -1,11 +1,40 @@
-const buttonsContainer = document.querySelectorAll(".buttons-container");
-const calculatorScreen = document.getElementById('screen')
+const calculator = {
+  displayValue: '0',
+  firstOperand: null,
+  waitingForSecondOperand: false,
+  operator: null,
+};
 
-const printNumber = event => {
-  calculatorScreen.value += event.target.value;
-  console.log(event.target.value)
+function renderDisplay() {
+  const display = document.querySelector('.calculator-screen');
+  display.value = calculator.displayValue;
 }
 
-buttonsContainer.forEach(button => {
-  button.addEventListener("click", printNumber)
-})
+renderDisplay();
+
+const buttons = document.querySelector('.buttons-container');
+buttons.addEventListener('click', (event) => {
+  
+  const { target } = event;
+
+  if (!target.matches('button')) {
+    return;
+  }
+
+  if (target.classList.contains('operator')) {
+    console.log('operator', target.value);
+    return;
+  }
+
+  if (target.classList.contains('decimal')) {
+    console.log('decimal', target.value);
+    return;
+  }
+
+  if (target.classList.contains('all-clear')) {
+    console.log('clear', target.value);
+    return;
+  }
+
+  console.log('digit', target.value);
+});
