@@ -16,7 +16,8 @@ buttons.addEventListener("click", (event) => {
   }
 
   if (target.classList.contains("operator")) {
-    console.log("operator", target.value);
+    handleOperator(target.value)
+    renderDisplay();
     return;
   }
 
@@ -38,12 +39,27 @@ function inputDigit(digit) {
   const { displayValue } = calculator;
   // Overwrite displayValue if the current value is 0
   calculator.displayValue = displayValue === "0" ? digit : displayValue + digit;
+  console.log(calculator)
 }
 
 function inputDecimal(dot) {
   if (!calculator.displayValue.includes(dot)) {
     calculator.displayValue += dot;
   }
+}
+
+function handleOperator(nextOperator) {
+  const { displayValue, firstOperand} = calculator;
+  // parseFloat converts the string contents of 'displayValue' to floating number
+  const inputValue = parseFloat(displayValue);
+  // verify that 'firstOperand' is null and 'inputValue' isn't a NaN value
+  if (firstOperand === null && !isNaN(inputValue)) {
+    // update the firstOperand property
+    calculator.firstOperand = inputValue;
+  }
+  calculator.waitingForSecondOperand = true;
+  calculator.operator = nextOperator;
+  console.log(calculator)
 }
 
 // View
