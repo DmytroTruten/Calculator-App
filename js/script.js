@@ -28,7 +28,8 @@ buttons.addEventListener("click", (event) => {
   }
 
   if (target.classList.contains("all-clear")) {
-    console.log("clear", target.value);
+    clearInput();
+    renderDisplay();
     return;
   }
   inputDigit(target.value);
@@ -60,6 +61,11 @@ function handleOperator(nextOperator) {
   calculator.waitingForSecondOperand = true;
   calculator.operator = nextOperator;
   console.log(calculator)
+}
+
+function clearInput() {
+  const display = document.querySelector(".calculator-screen");
+  calculator.displayValue = '0';
 }
 
 // View
