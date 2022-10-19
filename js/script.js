@@ -8,31 +8,33 @@ const calculator = {
 
 // Controller
 const buttons = document.querySelector(".buttons-container");
-buttons.addEventListener("click", (event) => {
+buttons.addEventListener("click", event => {
   const { target } = event;
+  const { value } = target;
 
-  if (!target.matches("button")) {
+  if(!target.matches('button')) {
     return;
   }
 
-  if (target.classList.contains("operator")) {
-    handleOperator(target.value);
-    renderDisplay();
-    return;
+  switch(value) {
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '=':
+      handleOperator(value);
+      break;
+    case '.':
+      inputDecimal(value);
+    case 'all-clear':
+      clearInput();
+      break;
+    default:
+      // check if the key is integer
+      if(Number.isInteger(parseFloat(value))){
+        inputDigit(value)
+      }
   }
-
-  if (target.classList.contains("decimal")) {
-    inputDecimal(target.value);
-    renderDisplay();
-    return;
-  }
-
-  if (target.classList.contains("all-clear")) {
-    clearInput();
-    renderDisplay();
-    return;
-  }
-  inputDigit(target.value);
   renderDisplay();
 });
 
