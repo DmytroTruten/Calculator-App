@@ -50,7 +50,7 @@ function inputDecimal(dot) {
 }
 
 function handleOperator(nextOperator) {
-  const { displayValue, firstOperand} = calculator;
+  const { displayValue, firstOperand } = calculator;
   // parseFloat converts the string contents of 'displayValue' to floating number
   const inputValue = parseFloat(displayValue);
   // verify that 'firstOperand' is null and 'inputValue' isn't a NaN value
@@ -64,8 +64,11 @@ function handleOperator(nextOperator) {
 }
 
 function clearInput() {
-  const display = document.querySelector(".calculator-screen");
-  calculator.displayValue = '0';
+  calculator.displayValue = "0";
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+  console.log(calculator)
 }
 
 // View
