@@ -72,6 +72,12 @@ function handleOperator(nextOperator) {
   const { displayValue, firstOperand, operator } = calculator;
   // parseFloat converts the string contents of 'displayValue' to floating number
   const inputValue = parseFloat(displayValue);
+
+  if(operator && calculator.waitingForSecondOperand) {
+    calculator.operator = nextOperator;
+    console.log(calculator);
+    return;
+  }
   // verify that 'firstOperand' is null and 'inputValue' isn't a NaN value
   if (firstOperand === null && !isNaN(inputValue)) {
     // update the firstOperand property
