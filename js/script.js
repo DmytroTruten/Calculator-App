@@ -63,6 +63,12 @@ function inputDigit(digit) {
 }
 
 function inputDecimal(dot) {
+  if(calculator.waitingForSecondOperand === true) {
+    calculator.displayValue = '0.';
+    calculator.waitingForSecondOperand = false;
+    return;
+  }
+
   if (!calculator.displayValue.includes(dot)) {
     calculator.displayValue += dot;
   }
