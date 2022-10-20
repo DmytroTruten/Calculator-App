@@ -8,31 +8,32 @@ const calculator = {
 
 // Controller
 const buttons = document.querySelector(".buttons-container");
-buttons.addEventListener("click", event => {
+buttons.addEventListener("click", (event) => {
   const { target } = event;
   const { value } = target;
 
-  if(!target.matches('button')) {
+  if (!target.matches("button")) {
     return;
   }
 
-  switch(value) {
-    case '+':
-    case '-':
-    case '*':
-    case '/':
-    case '=':
+  switch (value) {
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+    case "=":
       handleOperator(value);
       break;
-    case '.':
+    case ".":
       inputDecimal(value);
-    case 'all-clear':
+      break;
+    case "all-clear":
       clearInput();
       break;
     default:
       // check if the key is integer
-      if(Number.isInteger(parseFloat(value))){
-        inputDigit(value)
+      if (Number.isInteger(parseFloat(value))) {
+        inputDigit(value);
       }
   }
   renderDisplay();
@@ -65,8 +66,8 @@ function inputDigit(digit) {
 }
 
 function inputDecimal(dot) {
-  if(calculator.waitingForSecondOperand === true) {
-    calculator.displayValue = '0.';
+  if (calculator.waitingForSecondOperand === true) {
+    calculator.displayValue = "0.";
     calculator.waitingForSecondOperand = false;
     return;
   }
@@ -81,7 +82,7 @@ function handleOperator(nextOperator) {
   // parseFloat converts the string contents of 'displayValue' to floating number
   const inputValue = parseFloat(displayValue);
 
-  if(operator && calculator.waitingForSecondOperand) {
+  if (operator && calculator.waitingForSecondOperand) {
     calculator.operator = nextOperator;
     console.log(calculator);
     return;
@@ -90,10 +91,10 @@ function handleOperator(nextOperator) {
   if (firstOperand === null && !isNaN(inputValue)) {
     // update the firstOperand property
     calculator.firstOperand = inputValue;
-  } else if(operator) {
+  } else if (operator) {
     const result = calculate(firstOperand, inputValue, operator);
 
-    calculator.displayValue = String(result);
+    calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
     calculator.firstOperand = result;
   }
   calculator.waitingForSecondOperand = true;
