@@ -22,6 +22,7 @@ buttons.addEventListener("click", (event) => {
     case "*":
     case "/":
     case "=":
+    case "%":
       handleOperator(value);
       break;
     case "±":
@@ -57,6 +58,8 @@ function calculate(firstOperand, secondOperand, operator) {
     return firstOperand * secondOperand;
   } else if (operator === "/") {
     return firstOperand / secondOperand;
+  } else if (operator === "%") {
+    return (secondOperand / 100) * firstOperand;
   }
   return secondOperand;
 }
@@ -150,9 +153,9 @@ function clearInput() {
   calculator.firstOperand = null;
   calculator.waitingForSecondOperand = false;
   calculator.operator = null;
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     button.disabled = false;
-  })
+  });
   console.log(calculator);
 }
 
