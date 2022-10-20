@@ -33,6 +33,9 @@ buttons.addEventListener("click", (event) => {
     case "all-clear":
       clearInput();
       break;
+    case "delete-digit":
+      deleteLastDigit();
+      break;
     default:
       // check if the key is integer
       if (Number.isInteger(parseFloat(value))) {
@@ -74,16 +77,25 @@ function inputDecimal(dot) {
     calculator.waitingForSecondOperand = false;
     return;
   }
-
   if (!calculator.displayValue.includes(dot)) {
     calculator.displayValue += dot;
   }
 }
 
 function reverseOperand() {
-  let reversedOperand = calculator.displayValue *= -1;
+  let reversedOperand = (calculator.displayValue *= -1);
   let result = reversedOperand.toString();
   calculator.displayValue = result;
+  console.log(calculator);
+}
+
+function deleteLastDigit() {
+  const { displayValue } = calculator;
+  if (displayValue.length !== 1) {
+    calculator.displayValue = displayValue.slice(0, -1);
+  } else if (displayValue.length === 1) {
+    calculator.displayValue = "0";
+  }
   console.log(calculator);
 }
 
