@@ -24,6 +24,9 @@ buttons.addEventListener("click", (event) => {
     case "=":
       handleOperator(value);
       break;
+    case "±":
+      reverseOperand();
+      break;
     case ".":
       inputDecimal(value);
       break;
@@ -75,6 +78,13 @@ function inputDecimal(dot) {
   if (!calculator.displayValue.includes(dot)) {
     calculator.displayValue += dot;
   }
+}
+
+function reverseOperand() {
+  let reversedOperand = calculator.displayValue *= -1;
+  let result = reversedOperand.toString();
+  calculator.displayValue = result;
+  console.log(calculator);
 }
 
 function handleOperator(nextOperator) {
