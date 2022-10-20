@@ -36,6 +36,9 @@ buttons.addEventListener("click", (event) => {
     case "delete-digit":
       deleteLastDigit();
       break;
+    case "square-root":
+      getSquareRoot();
+      break;
     default:
       // check if the key is integer
       if (Number.isInteger(parseFloat(value))) {
@@ -83,8 +86,8 @@ function inputDecimal(dot) {
 }
 
 function reverseOperand() {
-  let reversedOperand = (calculator.displayValue *= -1);
-  let result = reversedOperand.toString();
+  const reversedOperand = (calculator.displayValue *= -1);
+  const result = reversedOperand.toString();
   calculator.displayValue = result;
   console.log(calculator);
 }
@@ -95,6 +98,23 @@ function deleteLastDigit() {
     calculator.displayValue = displayValue.slice(0, -1);
   } else if (displayValue.length === 1) {
     calculator.displayValue = "0";
+  }
+  console.log(calculator);
+}
+
+function getSquareRoot() {
+  const { displayValue } = calculator;
+  const result = Math.sqrt(displayValue);
+  const buttons = document.querySelectorAll("button");
+  if (isNaN(result)) {
+    calculator.displayValue = "Error";
+    buttons.forEach((button) => {
+      if (button.className != "all-clear") {
+        button.disabled = true;
+      }
+    });
+  } else {
+    calculator.displayValue = result;
   }
   console.log(calculator);
 }
@@ -125,10 +145,14 @@ function handleOperator(nextOperator) {
 }
 
 function clearInput() {
+  const buttons = document.querySelectorAll("button");
   calculator.displayValue = "0";
   calculator.firstOperand = null;
   calculator.waitingForSecondOperand = false;
   calculator.operator = null;
+  buttons.forEach(button => {
+    button.disabled = false;
+  })
   console.log(calculator);
 }
 
