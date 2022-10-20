@@ -25,6 +25,9 @@ buttons.addEventListener("click", (event) => {
     case "%":
       handleOperator(value);
       break;
+    case "1/x":
+      DividedByOne();
+      break;
     case "±":
       reverseOperand();
       break;
@@ -121,6 +124,12 @@ function getSquareRoot() {
   }
   console.log(calculator);
 }
+
+function DividedByOne() {
+  const { displayValue } = calculator;
+  const result = 1 / displayValue;
+  calculator.displayValue = result;
+} 
 
 function handleOperator(nextOperator) {
   const { displayValue, firstOperand, operator } = calculator;
