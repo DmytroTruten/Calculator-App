@@ -66,6 +66,14 @@ button[value="."] {
   grid-area: 5/3/span 1/span 1;
 }
 
+button[value=delete-digit] {
+  grid-area: 1/3/span 1/span 1;
+}
+
+button[value=square-root] {
+  grid-area: 1/5/span 1/span 1;
+}
+
 * {
   margin: 0;
   padding: 0;
