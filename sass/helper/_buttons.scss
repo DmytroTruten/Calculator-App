@@ -1,0 +1,51 @@
+button[value="0"] {
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+button[value="1"] {
+  grid-area: 4 / 1;
+}
+button[value="2"] {
+  grid-area: 4 / 2;
+}
+button[value="3"] {
+  grid-area: 4 / 3;
+}
+button[value="4"] {
+  grid-area: 3 / 1;
+}
+button[value="5"] {
+  grid-area: 3 / 2;
+}
+button[value="6"] {
+  grid-area: 3 / 3;
+}
+button[value="7"] {
+  grid-area: 2 / 1;
+}
+button[value="8"] {
+  grid-area: 2 / 2;
+}
+button[value="9"] {
+  grid-area: 2 / 3;
+}
+button[value="all-clear"] {
+  grid-area: 1 / 1 / span 1 / span 2;
+}
+button[value="/"] {
+  grid-area: 2 / 4;
+}
+button[value="*"] {
+  grid-area: 3 / 4;
+}
+button[value="-"] {
+  grid-area: 4 / 4;
+}
+button[value="+"] {
+  grid-area: 5 / 4 ;
+}
+button[value="="] {
+  grid-area: 4 / 5 / span 2 / span 1;
+}
+button[value="."] {
+  grid-area: 5 / 3 / span 1 / span 1;
+}
