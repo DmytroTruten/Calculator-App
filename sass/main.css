@@ -129,7 +129,7 @@ body {
   border-color: rgb(188, 70, 204);
   background-color: rgba(0, 0, 0, 0.8);
   color: rgb(141, 53, 153);
-  transition: transform ease-in-out 0.4s, box-shadow ease-in-out 0.4s, background-color ease-in-out 0.4s, color ease-in-out 0.4s 0.2s;
+  transition: transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s, background-color ease-in 0.2s, color ease-in-out 0.2s 0.2s;
   cursor: pointer;
 }
 .buttons-container button:hover {
@@ -137,7 +137,4 @@ body {
   box-shadow: none;
   background-color: rgb(141, 53, 153);
   color: black;
-}
-.buttons-container button:active {
-  background-color: rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=main.css.map */
