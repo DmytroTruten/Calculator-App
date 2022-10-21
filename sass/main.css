@@ -83,18 +83,24 @@ button[value=square-root] {
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
 .calculator-container {
   width: 30%;
   height: 85%;
-  border: 1px solid black;
+  border: 1px solid rgb(188, 70, 204);
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 10px;
+  padding: 15px;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 5px rgb(141, 53, 153);
+  border-radius: 5px;
 }
 .calculator-container .screen-container {
-  border: 1px solid black;
+  border: 1px solid rgb(188, 70, 204);
   height: 20%;
 }
 .calculator-container .screen-container input {
@@ -104,7 +110,7 @@ button[value=square-root] {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: end;
-  padding: 10px;
+  padding: 15px;
 }
 
 .buttons-container {
@@ -118,15 +124,19 @@ button[value=square-root] {
   padding-top: 10px;
 }
 .buttons-container button {
-  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  border: none;
-  transition: transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s, background-color ease 0s;
+  box-shadow: 0px 0px 2px 1px rgb(141, 53, 153);
+  border-radius: 10px;
+  border-color: rgb(188, 70, 204);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgb(141, 53, 153);
+  transition: transform ease-in-out 0.4s, box-shadow ease-in-out 0.4s, background-color ease-in-out 0.4s, color ease-in-out 0.4s 0.2s;
   cursor: pointer;
 }
 .buttons-container button:hover {
   transform: translateY(2px);
   box-shadow: none;
+  background-color: rgb(141, 53, 153);
+  color: black;
 }
 .buttons-container button:active {
   background-color: rgba(0, 0, 0, 0.3);

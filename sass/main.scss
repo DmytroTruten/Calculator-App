@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
 .calculator-container {
   width: 30%;
   height: 85%;
@@ -17,8 +21,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 10px;
+  padding: 15px;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 5px rgb(141, 53, 153);
+  border-radius: 5px;
   .screen-container {
     border: $container-border;
     height: 20%;
@@ -29,7 +35,7 @@
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
       text-align: end;
-      padding: 10px;
+      padding: 15px;
     }
   }
 }
@@ -43,18 +49,23 @@
   row-gap: 10px;
   padding-top: 10px;
   button {
-    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    border: none;
+    box-shadow: 0px 0px 2px 1px rgb(141, 53, 153);
+    border-radius: 10px;
+    border-color: rgb(188, 70, 204);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(141, 53, 153);
     transition: 
-      transform ease-in-out 0.2s,
-      box-shadow ease-in-out 0.2s,
-      background-color ease 0s;
+      transform ease-in-out .4s,
+      box-shadow ease-in-out .4s,
+      background-color ease-in-out .4s,
+      color ease-in-out .4s .2s;
     cursor: pointer;
   }
   button:hover {
     transform: translateY(2px);
     box-shadow: none;
+    background-color: rgb(141, 53, 153);
+    color: black;
   }
   button:active {
     background-color: rgba(0, 0, 0, 0.3);
