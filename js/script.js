@@ -120,7 +120,7 @@ function getSquareRoot() {
       }
     });
   } else {
-    calculator.displayValue = result;
+    calculator.displayValue = result.toString();
   }
   console.log(calculator);
 }
