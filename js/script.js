@@ -100,11 +100,14 @@ function reverseOperand() {
 
 function deleteLastDigit() {
   const { displayValue } = calculator;
-  if (displayValue.length === 2 && displayValue < 0 || displayValue.length === 1) {
+  if (
+    (displayValue.length === 2 && displayValue < 0) ||
+    displayValue.length === 1
+  ) {
     calculator.displayValue = "0";
   } else if (displayValue.length !== 1) {
     calculator.displayValue = displayValue.slice(0, -1);
-  } 
+  }
   console.log(calculator);
 }
 
@@ -129,7 +132,7 @@ function DividedByOne() {
   const { displayValue } = calculator;
   const result = 1 / displayValue;
   calculator.displayValue = result;
-} 
+}
 
 function handleOperator(nextOperator) {
   const { displayValue, firstOperand, operator } = calculator;
@@ -158,13 +161,23 @@ function handleOperator(nextOperator) {
 
 function clearInput() {
   const buttons = document.querySelectorAll("button");
-  calculator.displayValue = "0";
-  calculator.firstOperand = null;
-  calculator.waitingForSecondOperand = false;
-  calculator.operator = null;
-  buttons.forEach((button) => {
-    button.disabled = false;
-  });
+  if (
+    calculator.displayValue === "0" &&
+    calculator.firstOperand === null &&
+    calculator.waitingForSecondOperand === false &&
+    calculator.operator === null
+  ) {
+    return;
+  } else {
+    calculator.displayValue = "0";
+    calculator.firstOperand = null;
+    calculator.waitingForSecondOperand = false;
+    calculator.operator = null;
+    buttons.forEach((button) => {
+      button.disabled = false;
+    });
+  }
+  
   console.log(calculator);
 }
 
