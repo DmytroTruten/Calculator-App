@@ -99,14 +99,17 @@ function reverseOperand() {
 }
 
 function deleteLastDigit() {
-  const { displayValue } = calculator;
+  const { displayValue, firstOperand } = calculator;
+  let firstOperandString = firstOperand.toString().slice(0, -1);
   if (
     (displayValue.length === 2 && displayValue < 0) ||
     displayValue.length === 1
   ) {
+    calculator.firstOperand = parseFloat(firstOperandString);
     calculator.displayValue = "0";
   } else if (displayValue.length !== 1) {
     calculator.displayValue = displayValue.slice(0, -1);
+    calculator.firstOperand = parseFloat(firstOperandString);
   }
   console.log(calculator);
 }
@@ -177,7 +180,7 @@ function clearInput() {
       button.disabled = false;
     });
   }
-  
+
   console.log(calculator);
 }
 
