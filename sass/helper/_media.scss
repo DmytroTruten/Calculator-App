@@ -1,0 +1,27 @@
+@media (max-width: 480px) {
+  * {
+    font-size: 30px;
+  }
+  .calculator-container {
+    min-width: 90%;
+    max-width: 90%;
+  }
+  button {
+    min-width: max-content;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 481px) {
+  * {
+    font-size: 35px;
+  }
+  .calculator-container {
+    min-width: 400px;
+    max-width: 400px;
+  }
+  button {
+    min-width: max-content;
+    max-width: 100%;
+  }
+}
