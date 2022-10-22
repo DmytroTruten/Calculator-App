@@ -102,11 +102,12 @@ function deleteLastDigit() {
   const { displayValue, firstOperand } = calculator;
   if (displayValue.length !== 1) {
     calculator.displayValue = displayValue.slice(0, -1);
+    if (firstOperand) {
+      const firstOperandSliced = firstOperand.toString().slice(0, -1);
+      calculator.firstOperand = parseFloat(firstOperandSliced);
+    }
   } else if (displayValue.length === 1) {
     clearInput();
-  } else if (firstOperand !== null && !isNaN(firstOperand)) {
-    const firstOperandSliced = firstOperand.toString().slice(0, -1);
-    calculator.firstOperand = parseFloat(firstOperandSliced)
   }
   console.log(calculator);
 }
