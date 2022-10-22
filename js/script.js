@@ -99,15 +99,18 @@ function reverseOperand() {
 }
 
 function deleteLastDigit() {
-  const { displayValue, firstOperand } = calculator;
-  if (displayValue.length !== 1) {
-    calculator.displayValue = displayValue.slice(0, -1);
-    if (firstOperand) {
-      const firstOperandSliced = firstOperand.toString().slice(0, -1);
-      calculator.firstOperand = parseFloat(firstOperandSliced);
+  const { displayValue, waitingForSecondOperand} = calculator;
+  if(waitingForSecondOperand) {
+    return;
+  }
+  if(displayValue.length !== 1) {
+    if(displayValue.length == 2 && displayValue < 0) {
+      calculator.displayValue = '0';
+    } else {
+      calculator.displayValue = displayValue.slice(0, -1);
     }
   } else if (displayValue.length === 1) {
-    clearInput();
+    calculator.displayValue = '0';
   }
   console.log(calculator);
 }
@@ -153,7 +156,7 @@ function handleOperator(nextOperator) {
     const result = calculate(firstOperand, inputValue, operator);
 
     calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
-    calculator.firstOperand = result;
+    calculator.firstOperand = parseFloat(result.toFixed(7));
   }
   calculator.waitingForSecondOperand = true;
   calculator.operator = nextOperator;
