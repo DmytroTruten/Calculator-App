@@ -1,0 +1,5 @@
+@keyframes glowing {
+  0% {box-shadow: 0px 0px 10px 5px $background-purple;}
+  50% {box-shadow: 0px 0px 10px 10px $background-purple;}
+  100% {box-shadow: 0px 0px 10px 5px $background-purple;}
+}

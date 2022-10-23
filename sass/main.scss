@@ -1,6 +1,7 @@
 @import "helper/variables";
 @import "helper/buttons";
 @import "helper/media";
+@import "helper/logo";
 
 * {
   margin: 0;
@@ -14,11 +15,43 @@ body {
   background-color: rgba(0, 0, 0, 0.95);
 }
 
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 5%;
+  position: absolute;
+  p {
+    color: white;
+    font-size: 50px;
+    animation-name: glowing;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0px 0px 5px #fff, 0px 0px 0px $glowing, 0px 0px 10px $glowing, 0px 0px 20px $glowing;
+  }
+  50% {
+    text-shadow: 10px 0px 50px $glowing, -10px 0px 50px $glowing, 0px 0px 30px $glowing, 0px 0px 40px $glowing, 0px 0px 50px $glowing;
+  }
+  100% {
+    text-shadow: 0px 0px 5px #fff, 0px 0px 0px $glowing, 0px 0px 10px $glowing, 0px 0px 20px $glowing;
+  }
+}
+
 .calculator-container {
   border: $container-border;
   position: absolute;
   box-shadow: 0px 0px 10px 5px $background-purple;
   border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  transform: translate(-50%, -50%);
   .screen-container {
     border: $container-border;
     input {
@@ -44,11 +77,8 @@ body {
     border: $container-border;
     background-color: rgba(0, 0, 0, 0.8);
     color: $background-purple;
-    transition: 
-      transform ease-in-out .2s,
-      box-shadow ease-in-out .2s,
-      background-color ease-in .2s,
-      color ease-in-out .2s .2s;
+    transition: transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s,
+      background-color ease-in 0.2s, color ease-in-out 0.2s 0.2s;
     cursor: pointer;
   }
   button:hover {
