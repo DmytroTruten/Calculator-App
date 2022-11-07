@@ -77,7 +77,6 @@ function inputDigit(digit) {
     calculator.displayValue =
       displayValue === "0" ? digit : displayValue + digit;
   }
-  console.log(calculator);
 }
 
 function inputDecimal(dot) {
@@ -95,7 +94,6 @@ function reverseOperand() {
   const reversedOperand = (calculator.displayValue *= -1);
   const result = reversedOperand.toString();
   calculator.displayValue = result;
-  console.log(calculator);
 }
 
 function deleteLastDigit() {
@@ -112,7 +110,6 @@ function deleteLastDigit() {
   } else if (displayValue.length === 1) {
     calculator.displayValue = '0';
   }
-  console.log(calculator);
 }
 
 function getSquareRoot() {
@@ -129,7 +126,6 @@ function getSquareRoot() {
   } else {
     calculator.displayValue = result.toString();
   }
-  console.log(calculator);
 }
 
 function DividedByOne() {
@@ -145,7 +141,6 @@ function handleOperator(nextOperator) {
 
   if (operator && calculator.waitingForSecondOperand) {
     calculator.operator = nextOperator;
-    console.log(calculator);
     return;
   }
   // verify that 'firstOperand' is null and 'inputValue' isn't a NaN value
@@ -160,7 +155,6 @@ function handleOperator(nextOperator) {
   }
   calculator.waitingForSecondOperand = true;
   calculator.operator = nextOperator;
-  console.log(calculator);
 }
 
 function clearInput() {
@@ -182,7 +176,6 @@ function clearInput() {
     });
   }
 
-  console.log(calculator);
 }
 
 // View
